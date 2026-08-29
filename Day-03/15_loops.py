@@ -1,75 +1,74 @@
-# # Loops repeat a block of code.
-# # Python has two main loops: for and while.
+# Loops repeat a block of code.
+# Python has two main loops: for and while.
 
-# # for loop - repeats a fixed number of times, often over range().
-# print("For loop:")
-# for number in range(1, 6):
-#     print(number)
+# --- for loop with range() ---
+# range(start, stop) gives numbers from start up to stop - 1.
+print("for loop with range():")
+for number in range(1, 6):
+    print(number)
 
-# # while loop - repeats while a condition is True.
-# # We must update the counter to avoid an infinite loop.
-# print("While loop:")
-# count = 1
+# range(start, stop, step) jumps by step each time.
+print("\nfor loop with a step:")
+for number in range(2, 10, 2):   # 2, 4, 6, 8
+    print(number)
 
-# while count <= 5:
-#     print(count)
-#     count += 1  # increase count by 1 each time
+# --- while loop ---
+# A while loop repeats while a condition is True.
+# We must update the counter, otherwise the loop never ends.
+print("\nwhile loop:")
+count = 1
+while count <= 5:
+    print(count)
+    count += 1   # increase count by 1 each time
 
-# # break - stops the loop immediately.
-# print("Break example:")
-# for number in range(10):
-#     if number == 5:
-#         break  # stop the loop when number reaches 5
-#     print(number)
+# --- break ---
+# break stops the loop immediately.
+print("\nbreak example:")
+for number in range(10):
+    if number == 5:
+        break   # exit the loop when number reaches 5
+    print(number)
 
-# # continue - skips only the current iteration.
-# print("Continue example:")
-# for number in range(5):
-#     if number == 2:
-#         continue  # skip 2 and move to the next number
-#     print(number)
+# --- continue ---
+# continue skips only the current iteration.
+print("\ncontinue example:")
+for number in range(5):
+    if number == 2:
+        continue   # skip 2 and move on to the next number
+    print(number)
 
+# --- Loop through a list ---
+# We can loop through any collection: list, tuple, set, dictionary, string.
+print("\nloop through a list:")
+servers = ["web-01", "web-02", "db-01"]
+for server in servers:
+    print(server)
 
-# its a triangle pattern using while loop
+# --- Loop through a string ---
+# A string is a collection of characters.
+print("\nloop through a string:")
+name = "Python"
+for character in name:
+    print(character)
 
-# i = 5
-# while i >= 0:
-#     print(i * "*")
-#     i -= 1
+# --- Example: triangle pattern with a while loop ---
+# "*" * i repeats the star i times, printing one line at a time.
+i = 1
+while i <= 5:
+    print("*" * i)
+    i += 1
 
-# i = 1
-# while i <= 5:
-#     print(i * "*")
-#     i += 1
+# --- Example: even numbers from 0 to 5 ---
+# % returns the remainder, so a number is even when number % 2 == 0.
+for number in range(0, 6):
+    if number % 2 == 0:
+        print(number, "is even")
 
-
-# for loops 
-
-# 5 to 11
-
-# for nums in range(5, 11):
-#     print(nums)
-
-# for nums in range(2 ,10, 2):
-#     print(nums)
-
-
-# for i in range(0, 6):
-#     if i % 2 == 0: 
-#         print(i, "is even")
-
-
-# name = "Python"
-
-# for character in name:
-#     print(character)
-
-
-# multiples of 3 [1 to 50] => 21 
-
-for i in range(1, 51):
-    if(i == 21):
-        print("Found 21")
+# --- Example: multiples of 3 from 1 to 50, skipping 21 ---
+# Combines range(), % and continue in one example.
+for number in range(1, 51):
+    if number == 21:
+        print("21 found, skipping it")
         continue
-    if i % 3 == 0:
-        print(i, "is multiple of 3")
+    if number % 3 == 0:
+        print(number, "is a multiple of 3")

@@ -1,45 +1,62 @@
-# set unquie items collection
+# A set stores UNIQUE values only.
+# If we pass duplicate values, Python removes them automatically.
 
+# --- Creating a set ---
+# Sets use curly braces {}, but they do NOT store key-value pairs.
+marks = {98, 33, 95, 1, 98}     # 98 appears twice
+print(marks)                    # 98 appears only once
 
-# we create sets using curly bracker
+# Note: sets are unordered, so the print order may vary.
 
-marks = {98, 33, 95, 1, 98}
-print(marks)
+# --- No indexing ---
+# Sets do NOT support indexing like lists or tuples.
+# The line below is NOT allowed and would raise a TypeError:
+# print(marks[0])
 
+# --- Empty set: {} vs set() ---
+# {} creates an empty DICTIONARY (covered in 19_dictionary.py).
+# set() creates an empty SET.
+empty_set = set()
+empty_dict = {}
+print(type(empty_set))     # <class 'set'>
+print(type(empty_dict))    # <class 'dict'>
 
-# add more expmple and more about sets 
+# --- add() and remove() ---
+# Sets are mutable: we can add and remove values.
+tools = {"Linux", "Docker", "Git"}
+print(tools)
 
-# A set is a collection of unique values.
+tools.add("Python")       # add one value
+print(tools)
 
-# tools = {"Linux", "Docker", "Python", "Linux"}
+tools.add("Linux")        # already exists -> nothing changes
+print(tools)
 
-# print(tools)
+tools.remove("Docker")    # remove one value
+print(tools)
 
-# Output will contain Linux only once:
+# discard() is safer than remove(): it does NOT raise an error
+# if the value is not in the set.
+tools.discard("AWS")      # not in the set -> no error
+print(tools)
 
-# {'Linux', 'Docker', 'Python'}
-# Main property: No duplicates
-# numbers = {1, 2, 2, 3, 3, 3}
+# --- Membership (in) ---
+print("Linux" in tools)   # True
+print("AWS" in tools)     # False
 
-# print(numbers)
-# {1, 2, 3}
+# --- Loop through a set ---
+for tool in tools:
+    print(tool)
 
-# Python automatically removes duplicates.
+# --- Set operations ---
+devops = {"Linux", "Docker", "Python", "AWS"}
+cloud = {"AWS", "Azure", "GCP"}
 
-# Sets are mutable
+# union(): all values from both sets
+print(devops.union(cloud))
 
-# You can add or remove values:
+# intersection(): values present in BOTH sets
+print(devops.intersection(cloud))   # AWS
 
-# tools = {"Linux", "Docker"}
-
-# tools.add("Python")
-
-# print(tools)
-
-# Output:
-
-# {"Linux", "Docker", "Python"}
-
-# You can also:
-
-# tools.remove("Docker")
+# difference(): values in devops but NOT in cloud
+print(devops.difference(cloud))

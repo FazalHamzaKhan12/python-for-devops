@@ -1,47 +1,61 @@
-# list 
-# a collection of items in a particular order
+# A list stores multiple values in an ordered collection.
+# Lists are mutable: we can change, add, and remove items.
+# A list can also store different data types.
 
 marks = [10, 20, 30, 40, 50, "3", 3.5, True, False]
 
-# print(marks[0])  # prints the first element 
+print(marks)              # print the whole list
 
+# --- len() ---
+# len() returns the number of items in the list.
+print(len(marks))
 
-# print the lenth of the list
+# --- Indexing ---
+# Items are indexed from 0: the first item has index 0.
+print(marks[0])           # first item
+print(marks[3])           # fourth item
 
-print(len(marks))  # prints the length of the list
+# --- Negative indexing ---
+# Negative indexes count from the end: -1 is the last item, -2 the second last.
+print(marks[-1])          # last item
+print(marks[-2])          # second last item
 
-# index values 
-#  items in a list are indexed, the first item has index 0, the second item has index 1, and so on.
+# --- Slicing ---
+# Slice syntax: list[start:stop], the stop index is excluded.
+# list[start:stop:step]
+print(marks[1:4])         # items at index 1, 2, 3
+print(marks[:3])          # from the beginning up to index 2
+print(marks[2:5])         # items at index 2, 3, 4
+print(marks[1:5:2])       # items at index 1 and 3 (step of 2)
 
-print(marks[3])  # prints the fourth element 
+# --- Loop through a list ---
+print("Looping through marks:")
+for mark in marks:
+    print(mark)
 
-# in if we use - so its from opposite side -1 is the last element, -2 is the second last element, and so on.
-print(marks[-1])  # prints the last element
-print(marks[-2])  # prints the second last element
+# --- Membership (in) ---
+# in checks whether a value exists in the list.
+print(40 in marks)        # True
+print(99 in marks)        # False
 
-# slicing a list
+# --- Changing and adding values (mutability) ---
+# A list with tool names used in DevOps.
+tools = ["Linux", "Git", "Docker", "Python"]
+print(tools)
 
-# slicing a list - list {start: end}
-# slicing a list is start , stop , step list[start:end:step]
-print(marks[1:4])  # prints elements from index 1 to 3 
-print(marks[:3])   # prints elements from the beginning to index 2
-print(marks[2:5])  # prints elements from index 2 to 4
-print(marks[1:5:2]) # prints elements from index 1 to 4 with a step of 2
+tools[0] = "Ubuntu"       # change the first item
+print(tools)
 
+tools.append("AWS")       # add an item to the end
+print(tools)
 
+tools.insert(1, "Kubernetes")   # insert an item at index 1
+print(tools)
 
+# --- remove() and pop() ---
+tools.remove("Docker")   # remove the first matching item
+print(tools)
 
-for i in marks:
-    print(i)  # prints each element in the list
-
-
-# list are mutable - we can change the elements in a list
-marks[0] = 100  # change the first element to 100
-
-print(marks)  # prints the updated list
-
-marks.append(60)  # add an element to the end of the list
-print(marks)  # prints the list with the new element
-
-marks.insert(1, 50)
-print(marks )
+removed = tools.pop()    # remove and return the last item
+print("removed:", removed)
+print(tools)

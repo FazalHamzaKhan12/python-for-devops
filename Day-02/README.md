@@ -23,7 +23,6 @@ Day-02/
 ├── 12_logical_operators.py
 ├── 13_conditional_statements.py
 ├── 14_range.py
-├── 15_loops.py
 └── practice/
     └── 01_simple_calculator.py
 ```
